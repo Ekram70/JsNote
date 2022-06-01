@@ -131,7 +131,7 @@ Array.of();
 
 <br>
 
-### Array.prototype.at()
+### Array.prototype.at() - Experimental
 
 ---
 
@@ -250,6 +250,388 @@ every(callbackFn, thisArg);
 ```
 
 <br>
+
+### Array.prototype.fill()
+
+---
+
+#### Description
+
+    changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array.
+
+#### Syntax
+
+```js
+fill(value, start, end);
+```
+
+#### Parameter
+
+    value = Value to fill the array with. All elements in the array will be this exact value
+    start (optional) = Start index (inclusive), default 0. accepts negative index value.
+    end (optional) = End index (exclusive), default arr.length. accepts negative index value.
+
+#### Return value
+
+    The modified array, filled with value.
+
+#### Example
+
+```js
+const array1 = [1, 2, 3, 4];
+
+console.log(array1.fill(6));
+//[6, 6, 6, 6]
+console.log(array1.fill(5, 1));
+//[1, 5, 5, 5]
+console.log(array1.fill(0, 2, 4));
+//[1, 2, 0, 0]
+```
+
+#### Special Note
+
+    [1, 2, 3].fill(4, 1, 1)          // [1, 2, 3]
+    [1, 2, 3].fill(4, NaN, NaN)      // [1, 2, 3]
+    Array(3).fill(4)                 // [4, 4, 4]
+
+<br>
+
+### Array.prototype.filter()
+
+---
+
+#### Description
+
+    creates a new array with all elements that pass the test implemented by the provided function.
+
+#### Syntax
+
+```js
+filter(callbackFn, thisArg);
+```
+
+#### Parameter
+
+    callbackFn = function(element, index, array){}. This returns a value that coerces to true to keep the element, or to false otherwise.
+    thisArg (optional) = Value to use as this when executing callbackFn.
+
+#### Return value
+
+    A new array with the elements that pass the test. If no elements pass the test, an empty array will be returned.
+
+#### Example
+
+```js
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const filter = arr.filter((number) => number > 5);
+console.log(filter); // [6, 7, 8, 9]
+```
+
+<br>
+
+### Array.prototype.find()
+
+---
+
+#### Description
+
+    returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+
+#### Syntax
+
+```js
+find(callbackFn, thisArg);
+```
+
+#### Parameter
+
+    callbackFn = function(element, index, array){}. Function to execute on each value in the array.
+    thisArg (optional) = Value to use as this when executing callbackFn.
+
+#### Return value
+
+    The first element in the array that satisfies the provided testing function. Otherwise, undefined is returned.
+
+#### Example
+
+```js
+const array1 = [5, 12, 8, 130, 44];
+const found = array1.find((element) => element > 10);
+console.log(found); // 12
+```
+
+<br>
+
+### Array.prototype.findIndex()
+
+---
+
+#### Description
+
+     returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+
+#### Syntax
+
+```js
+findIndex(callbackFn, thisArg);
+```
+
+#### Parameter
+
+    callbackFn = function(element, index, array){}. A function to execute on each value in the array until the function returns true, indicating that the satisfying element was found.
+    thisArg (optional) = Value to use as this when executing callbackFn.
+
+#### Return value
+
+    The index of the first element in the array that passes the test. Otherwise, -1.
+
+#### Example
+
+```js
+const arr = ["A", "B", "C"];
+const index = arr.findIndex((item) => item === "B");
+// index == 1
+```
+
+<br>
+
+### Array.prototype.findLastIndex()
+
+---
+
+#### Description
+
+    It is opposite of Array.prototype.findIndex()
+
+<br>
+
+### Array.prototype.findLast()
+
+---
+
+#### Description
+
+    It is opposite of Array.prototype.find()
+
+<br>
+
+### Array.prototype.flat()
+
+---
+
+#### Description
+
+    creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+
+#### Syntax
+
+```js
+flat(depth);
+```
+
+#### Parameter
+
+    depth (optional) = The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
+
+#### Return value
+
+    A new array with the sub-array elements concatenated into it.
+
+#### Example
+
+```js
+const arr1 = [1, 2, [3, 4]];
+arr1.flat();
+// [1, 2, 3, 4]
+
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr4.flat(Infinity);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+#### Special Note
+
+    The flat method removes empty slots in arrays:
+    const arr5 = [1, 2, , 4, 5];
+
+    arr5.flat();
+    // [1, 2, 4, 5]
+
+<br>
+
+### Array.prototype.flatMap()
+
+---
+
+#### Description
+
+    It is identical to a map() followed by a flat() of depth 1,
+
+<br>
+
+### Array.prototype.forEach()
+
+---
+
+#### Description
+
+    executes a provided function once for each array element.
+
+#### Syntax
+
+```js
+forEach(callbackFn, thisArg);
+```
+
+#### Parameter
+
+    callbackFn = function(element, index, array){}. Function to execute on each element.
+
+#### Return value
+
+    undefined.
+
+#### Example
+
+```js
+const array1 = ["a", "b", "c"];
+array1.forEach((element) => console.log(element));
+//"a" //"b" //"c"
+```
+
+#### Special Note
+
+    forEach() is not chainable as it returns undefined.
+
+<br>
+
+### Array.prototype.includes()
+
+---
+
+#### Description
+
+    determines whether an array includes a certain value among its entries, returning true or false as appropriate. It only searches from the specified index to right side.
+
+#### Syntax
+
+```js
+includes(searchElement, fromIndex);
+```
+
+#### Parameter
+
+    searchElement = The value to search for. When comparing strings and characters, includes() is case-sensitive.
+    fromIndex (optional) = The position in this array at which to begin searching for searchElement. Accept negative index values. Defaults to 0.
+
+#### Return value
+
+    A boolean value which is true if the value searchElement is found within the array (or the part of the array indicated by the index fromIndex, if specified).
+
+#### Example
+
+```js
+[1, 2, 3].includes(3, -1); // true
+[1, 2, NaN].includes(NaN); // true
+["1", "2", "3"].includes(3); // false
+```
+
+#### Special Note
+
+    let arr = ['a', 'b', 'c']
+    arr.includes('c', 100) // false
+    arr.includes('a', -100) // true
+
+<br>
+
+### Array.prototype.indexOf()
+
+---
+
+#### Description
+
+    returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+#### Syntax
+
+```js
+indexOf(searchElement, fromIndex);
+```
+
+#### Parameter
+
+    searchElement = Element to locate in the array.
+    fromIndex (optional) = The index to start the search at. Accept negative index values. Defaults to 0.
+
+#### Return value
+
+    The first index of the element in the array; -1 if not found.
+
+#### Example
+
+```js
+const beasts = ["ant", "bison", "camel", "duck", "bison"];
+console.log(beasts.indexOf("bison"));
+// 1
+console.log(beasts.indexOf("bison", 2));
+//4
+console.log(beasts.indexOf("giraffe"));
+//-1
+```
+
+#### Special Note
+
+    indexOf() compares searchElement to elements of the Array using strict equality (the same method used by the === or triple-equals operator).
+
+<br>
+
+### Array.prototype.join()
+
+---
+
+#### Description
+
+    creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+
+#### Syntax
+
+```js
+join(separator);
+```
+
+#### Parameter
+
+    separator (optional) = Specifies a string to separate each pair of adjacent elements of the array. The separator is converted to a string if necessary. If omitted, the array elements are separated with a comma (","). If separator is an empty string, all elements are joined without any characters in between them.
+
+#### Return value
+
+    A string with all array elements joined. If arr.length is 0, the empty string is returned.
+
+#### Example
+
+```js
+const elements = ["Fire", "Air", "Water"];
+console.log(elements.join());
+//"Fire,Air,Water"
+console.log(elements.join(""));
+//"FireAirWater"
+console.log(elements.join("-"));
+//"Fire-Air-Water"
+```
+
+#### Special Note
+
+    If an element is undefined, null or an empty array [], it is converted to an empty string.
+
+<br>
+
+### Array.prototype.lastIndexOf()
+
+---
+
+#### Description
+
+    It is opposite of Array.prototype.indexOf()
 
 ### ()
 
