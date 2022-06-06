@@ -5,10 +5,44 @@ In this note we will discuss all JavaScript methods and properties including Dom
 ## Table Of Contents
 
 1. [Array Methods](#array)
+   1. [Array.from()](#arrayFrom)
+   1. [Array.isArray()](#arrayIsArray)
+   1. [Array.of()](#arrayOf)
+   1. [Array.prototype.at()](#arrayAt)
+   1. [Array.prototype.concat()](#arrayConcat)
+   1. [Array.prototype.every()](#arrayEvery)
+   1. [Array.prototype.fill()](#arrayFill)
+   1. [Array.prototype.filter()](#arrayFilter)
+   1. [Array.prototype.find()](#arrayFind)
+   1. [Array.prototype.findIndex()](#arrayFindIndex)
+   1. [Array.prototype.findLastIndex()](#arrayFindLastIndex)
+   1. [Array.prototype.findLast()](#arrayFindLast)
+   1. [Array.prototype.flat()](#arrayFlat)
+   1. [Array.prototype.flatMap()](#arrayFlatMap)
+   1. [Array.prototype.forEach()](#arrayForEach)
+   1. [Array.prototype.includes()](#arrayIncludes)
+   1. [Array.prototype.indexOf()](#arrayIndexOf)
+   1. [Array.prototype.join()](#arrayJoin)
+   1. [Array.prototype.lastIndexOf()](#arrayLastIndexOf)
+   1. [Array.prototype.map()](#arrayMap)
+   1. [Array.prototype.pop()](#arrayPop)
+   1. [Array.prototype.push()](#arrayPush)
+   1. [Array.prototype.reduce()](#arrayReduce)
+   1. [Array.prototype.reduceRight()](#arrayReduceRight)
+   1. [Array.prototype.reverse()](#arrayReverse)
+   1. [Array.prototype.shift()](#arrayShift)
+   1. [Array.prototype.slice()](#arraySlice)
+   1. [Array.prototype.some()](#arraySome)
+   1. [Array.prototype.sort()](#arraySort)
+   1. [Array.prototype.splice()](#arraySplice)
+   1. [Array.prototype.toString()](#arrayToString)
+   1. [Array.prototype.unshift()](#arrayUnshift)
 
 <a name="array"></a>
 
 ## Array Methods
+
+<a name="arrayFrom"></a>
 
 ### Array.from()
 
@@ -47,6 +81,8 @@ Array.from(155);
 ```
 
 <br>
+
+<a name="arrayIsArray"></a>
 
 ### Array.isArray()
 
@@ -90,6 +126,8 @@ Array.isArray(Array.prototype);
 
 <br>
 
+<a name="arrayOf"></a>
+
 ### Array.of()
 
 ---
@@ -131,6 +169,8 @@ Array.of();
 
 <br>
 
+<a name="arrayAt"></a>
+
 ### Array.prototype.at() - Experimental
 
 ---
@@ -168,6 +208,8 @@ at(index);
 ```
 
 <br>
+
+<a name="arrayConcat"></a>
 
 ### Array.prototype.concat()
 
@@ -217,6 +259,8 @@ num1.concat(num2, num3);
 
 <br>
 
+<a name="arrayEvery"></a>
+
 ### Array.prototype.every()
 
 ---
@@ -250,6 +294,8 @@ every(callbackFn, thisArg);
 ```
 
 <br>
+
+<a name="arrayFill"></a>
 
 ### Array.prototype.fill()
 
@@ -296,6 +342,8 @@ console.log(array1.fill(0, 2, 4));
 
 <br>
 
+<a name="arrayFilter"></a>
+
 ### Array.prototype.filter()
 
 ---
@@ -328,6 +376,8 @@ console.log(filter); // [6, 7, 8, 9]
 ```
 
 <br>
+
+<a name="arrayFind"></a>
 
 ### Array.prototype.find()
 
@@ -362,6 +412,8 @@ console.log(found); // 12
 
 <br>
 
+<a name="arrayFindIndex"></a>
+
 ### Array.prototype.findIndex()
 
 ---
@@ -395,6 +447,8 @@ const index = arr.findIndex((item) => item === "B");
 
 <br>
 
+<a name="arrayFindLastIndex"></a>
+
 ### Array.prototype.findLastIndex()
 
 ---
@@ -405,6 +459,8 @@ const index = arr.findIndex((item) => item === "B");
 
 <br>
 
+<a name="arrayFindLast"></a>
+
 ### Array.prototype.findLast()
 
 ---
@@ -414,6 +470,8 @@ const index = arr.findIndex((item) => item === "B");
     It is opposite of Array.prototype.find()
 
 <br>
+
+<a name="arrayFlat"></a>
 
 ### Array.prototype.flat()
 
@@ -459,6 +517,8 @@ arr4.flat(Infinity);
 
 <br>
 
+<a name="arrayFlatMap"></a>
+
 ### Array.prototype.flatMap()
 
 ---
@@ -468,6 +528,8 @@ arr4.flat(Infinity);
     It is identical to a map() followed by a flat() of depth 1,
 
 <br>
+
+<a name="arrayForEach"></a>
 
 ### Array.prototype.forEach()
 
@@ -504,6 +566,8 @@ array1.forEach((element) => console.log(element));
     forEach() is not chainable as it returns undefined.
 
 <br>
+
+<a name="arrayIncludes"></a>
 
 ### Array.prototype.includes()
 
@@ -543,6 +607,8 @@ includes(searchElement, fromIndex);
     arr.includes('a', -100) // true
 
 <br>
+
+<a name="arrayIndexOf"></a>
 
 ### Array.prototype.indexOf()
 
@@ -589,6 +655,8 @@ console.log(array.indexOf(9, 10));
 
 <br>
 
+<a name="arrayJoin"></a>
+
 ### Array.prototype.join()
 
 ---
@@ -629,6 +697,8 @@ console.log(elements.join("-"));
 
 <br>
 
+<a name="arrayLastIndexOf"></a>
+
 ### Array.prototype.lastIndexOf()
 
 ---
@@ -636,6 +706,8 @@ console.log(elements.join("-"));
 #### Description
 
     It is opposite of Array.prototype.indexOf()
+
+<a name="arrayMap"></a>
 
 ### Array.prototype.map()
 
@@ -683,6 +755,8 @@ console.log(map1);
 
 <br>
 
+<a name="arrayPop"></a>
+
 ### Array.prototype.pop()
 
 ---
@@ -712,6 +786,8 @@ console.log(plants);
 ```
 
 <br>
+
+<a name="arrayPush"></a>
 
 ### Array.prototype.push()
 
@@ -747,6 +823,8 @@ console.log(animals);
 ```
 
 <br>
+
+<a name="arrayReduce"></a>
 
 ### Array.prototype.reduce()
 
@@ -798,6 +876,8 @@ let flattened = [
 
 <br>
 
+<a name="arrayReduceRight"></a>
+
 ### Array.prototype.reduceRight()
 
 ---
@@ -822,6 +902,8 @@ console.log(right); // "54321"
 ```
 
 <br>
+
+<a name="arrayReverse"></a>
 
 ### Array.prototype.reverse()
 
@@ -851,6 +933,8 @@ console.log(items); // [3, 2, 1]
 
 <br>
 
+<a name="arrayShift"></a>
+
 ### Array.prototype.shift()
 
 ---
@@ -860,6 +944,8 @@ console.log(items); // [3, 2, 1]
     It is opposite of Array.prototype.pop()
 
 <br>
+
+<a name="arraySlice"></a>
 
 ### Array.prototype.slice()
 
@@ -896,6 +982,8 @@ let citrus = fruits.slice(1, 3);
 
 <br>
 
+<a name="arraySome"></a>
+
 ### Array.prototype.some()
 
 ---
@@ -905,6 +993,8 @@ let citrus = fruits.slice(1, 3);
     Just like Array.prototype.every() but tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
 
 <br>
+
+<a name="arraySort"></a>
 
 ### Array.prototype.sort()
 
@@ -956,6 +1046,8 @@ console.log(numbers);
 
 <br>
 
+<a name="arraySplice"></a>
+
 ### Array.prototype.splice()
 
 ---
@@ -984,6 +1076,8 @@ splice(start, deleteCount, item1, item2, itemN);
 
 <br>
 
+<a name="arrayToString"></a>
+
 ### Array.prototype.toString()
 
 ---
@@ -993,6 +1087,8 @@ splice(start, deleteCount, item1, item2, itemN);
     It works like Array.prototype.join() without a separator.
 
 <br>
+
+<a name="arrayUnshift"></a>
 
 ### Array.prototype.unshift()
 
