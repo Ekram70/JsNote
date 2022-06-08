@@ -1100,6 +1100,361 @@ splice(start, deleteCount, item1, item2, itemN);
 
 <br>
 
+<a name="string"></a>
+
+## String Method Methods
+
+<a name="stringFromCharCode"></a>
+
+### String.fromCharCode()
+
+---
+
+#### Description
+
+    returns a string created from the specified sequence of UTF-16 code units.
+
+#### Syntax
+
+```js
+String.fromCharCode(num1, num2, ..., numN)
+```
+
+#### Parameter
+
+    num1...numN = A sequence of numbers that are UTF-16 code units
+
+#### Return value
+
+    A string of length N consisting of the N specified UTF-16 code units.
+
+#### Example
+
+```js
+String.fromCharCode(65, 66, 67); // returns "ABC"
+```
+
+<br>
+
+<a name="stringAt"></a>
+
+### String.prototype.at() - Experimental
+
+---
+
+#### Description
+
+    Works like Array.prototype.at()
+
+<br>
+
+<a name="stringCharAt"></a>
+
+### String.prototype.charAt()
+
+---
+
+#### Description
+
+    it works like String.prototype.at() but doesn't accept negative index. If the index is not between string length it returns empty string.
+
+<br>
+
+<a name="stringCharCodeAt"></a>
+
+### String.prototype.charCodeAt()
+
+---
+
+#### Description
+
+    It works like String.prototype.charAt() but return the ascii value of the given index. It return NaN if is out of range of out of index.
+
+<br>
+
+<a name="stringConcat"></a>
+
+### String.prototype.concat()
+
+---
+
+#### Description
+
+    It is similar to Array.prototype.concat()
+
+#### Special Note
+
+    It is strongly recommended to use assignment operators (+=) instead of String.prototype.concat()
+
+<br>
+
+<a name=""></a>
+
+### String.prototype.endsWith()
+
+---
+
+#### Description
+
+    determines whether a string ends with the characters of a specified string, returning true or false as appropriate.
+
+#### Syntax
+
+```js
+endsWith(searchString, length);
+```
+
+#### Parameter
+
+    searchString = The characters to be searched for at the end of str.
+    length (optional) = If provided, it is used as the length of str. Defaults to str.length.
+
+#### Return value
+
+    true if the given characters are found at the end of the string; otherwise, false.
+
+#### Example
+
+```js
+let str = "To be, or not to be, that is the question.";
+console.log(str.endsWith("question.")); // true
+console.log(str.endsWith("to be")); // false
+console.log(str.endsWith("to be", 19)); // true
+```
+
+<br>
+
+<a name="stringIncludes"></a>
+
+### String.prototype.includes()
+
+---
+
+#### Description
+
+    performs a case-sensitive search to determine whether one string may be found within another string, returning true or false as appropriate.
+
+#### Syntax
+
+```js
+includes(searchString, position);
+```
+
+#### Parameter
+
+    searchString = A string to be searched for within str.
+    position (optional) = The position within the string at which to begin searching for searchString. (Defaults to 0.)
+
+#### Return value
+
+    true if the search string is found anywhere within the given string; otherwise, false if not.
+
+#### Example
+
+```js
+"Ekram".includes("a");
+// true
+"Ekram".includes("E", 3);
+// false
+```
+
+<br>
+
+<a name="stringIndexOf"></a>
+
+### String.prototype.indexOf()
+
+---
+
+#### Description
+
+    It works similar to Array.prototype.indexOf()
+
+#### Syntax
+
+```js
+indexOf(searchString, position);
+```
+
+#### Example
+
+```js
+"hello".indexOf(); //-1
+"hello".indexOf("o", 10); //-1
+"hello".indexOf("o", -5); //4
+```
+
+<br>
+
+<a name="stringLastIndexOf"></a>
+
+### String.prototype.lastIndexOf()
+
+---
+
+#### Description
+
+    It is opposite of String.prototype.indexOf()
+
+#### Example
+
+```js
+"hello".lastIndexOf(); //-1
+"hello".lastIndexOf("o", 10); //4
+"hello".lastIndexOf("o", -5); //-1
+```
+
+<br>
+
+<a name="stringMatch"></a>
+
+### String.prototype.match()
+
+---
+
+#### Description
+
+    retrieves the result of matching a string against a regular expression.
+
+#### Syntax
+
+```js
+match(regexp);
+```
+
+#### Parameter
+
+    regexp = A regular expression object.
+
+    If regexp is a non-RegExp object, it is implicitly converted to a RegExp by using new RegExp(regexp).
+
+    If you don't give any parameter and use the match() method directly, you will get an Array with an empty string: [""].
+
+#### Return value
+
+    An Array whose contents depend on the presence or absence of the global (g) flag, or null if no matches are found.
+
+#### Example
+
+```js
+const paragraph = "The quick brown. It barked.";
+const regex = /[A-Z]/g;
+const found = paragraph.match(regex);
+console.log(found);
+// ["T", "I"]
+```
+
+<br>
+
+<a name="stringMatchAll"></a>
+
+### String.prototype.matchAll()
+
+---
+
+#### Description
+
+    The matchAll() method returns an iterator of all results matching a string against a regular expression, including capturing groups.
+
+#### Return value
+
+    An iterator (which is not a restartable iterable) of matches.
+
+<br>
+
+<a name="stringPadEnd"></a>
+
+### String.prototype.padEnd()
+
+---
+
+#### Description
+
+    pads the current string with a given string (repeated, if needed) so that the resulting string reaches a given length. The padding is applied from the end of the current string.
+
+#### Syntax
+
+```js
+padEnd(targetLength, padString);
+```
+
+#### Parameter
+
+    targetLength = The length of the resulting string once the current str has been padded. If the value is lower than str.length, the current string will be returned as-is.
+
+    padString (optional) = The string to pad the current str with. Default is space.
+
+#### Return value
+
+    A String of the specified targetLength with the padString applied at the end of the current str.
+
+#### Example
+
+```js
+"abc".padEnd(10); // "abc       "
+"abc".padEnd(10, "foo"); // "abcfoofoof"
+"abc".padEnd(6, "123456"); // "abc123"
+"abc".padEnd(1); // "abc"
+```
+
+<br>
+
+<a name="stringPadStart"></a>
+
+### String.prototype.padStart()
+
+---
+
+#### Description
+
+    It works same as String.prototype.padEnd() but it starts padding from starting of the string.
+
+<br>
+
+<a name="stringRepeat"></a>
+
+### String.prototype.repeat()
+
+---
+
+#### Description
+
+     constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
+#### Syntax
+
+```js
+repeat(count);
+```
+
+#### Parameter
+
+    count = An integer between 0 and +Infinity, indicating the number of times to repeat the string.
+
+#### Return value
+
+    A new string containing the specified number of copies of the given string.
+
+#### Example
+
+```js
+"abc".repeat(-1); // RangeError
+"abc".repeat(0); // ''
+"abc".repeat(1); // 'abc'
+"abc".repeat(2); // 'abcabc'
+"abc".repeat(3.5); // 'abcabcabc' (count will be converted to integer)
+"abc".repeat(1 / 0); // RangeError
+```
+
+#### Special Note
+
+    RangeError: repeat count must be non-negative.
+    RangeError: repeat count must be less than infinity and not overflow maximum string size.
+
+<br>
+
+<a name=""></a>
+
 ### ()
 
 ---
