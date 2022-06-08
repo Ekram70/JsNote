@@ -37,6 +37,35 @@ In this note we will discuss all JavaScript methods and properties including Dom
    1. [Array.prototype.splice()](#arraySplice)
    1. [Array.prototype.toString()](#arrayToString)
    1. [Array.prototype.unshift()](#arrayUnshift)
+1. [String Methods](#string)
+   1. [String.fromCharCode()](#stringFromCharCode)
+   1. [String.prototype.at()](#stringAt)
+   1. [String.prototype.charAt()](#stringCharAt)
+   1. [String.prototype.charCodeAt()](#stringCharCodeAt)
+   1. [String.prototype.concat()](#stringConcat)
+   1. [String.prototype.endsWith()](#stringEndsWith)
+   1. [String.prototype.includes()](#stringIncludes)
+   1. [String.prototype.indexOf()](#stringIndexOf)
+   1. [String.prototype.lastIndexOf()](#stringLastIndexOf)
+   1. [String.prototype.match()](#stringMatch)
+   1. [String.prototype.matchAll()](#stringMatchAll)
+   1. [String.prototype.padEnd()](#stringPadEnd)
+   1. [String.prototype.padStart()](#stringPadStart)
+   1. [String.prototype.repeat()](#stringRepeat)
+   1. [String.prototype.replace()](#stringReplace)
+   1. [String.prototype.replaceAll()](#stringReplaceAll)
+   1. [String.prototype.search()](#stringSearch)
+   1. [String.prototype.slice()](#stringSlice)
+   1. [String.prototype.split()](#stringSplit)
+   1. [String.prototype.startsWith()](#stringStartsWith)
+   1. [String.prototype.substring()](#stringSubstring)
+   1. [String.prototype.toLowerCase()](#stringToLowerCase)
+   1. [String.prototype.toString()](#stringToString)
+   1. [String.prototype.toUpperCase()](#stringToUpperCase)
+   1. [String.prototype.trim()](#stringTrim)
+   1. [String.prototype.trimEnd() /String.prototype.trimRight()](#stringTrimEnd)
+   1. [String.prototype.trimStart() /String.prototype.trimLeft()](#stringTrimStart)
+   1. [String.prototype.valueOf()](#stringValueOf)
 
 <a name="array"></a>
 
@@ -1188,7 +1217,7 @@ String.fromCharCode(65, 66, 67); // returns "ABC"
 
 <br>
 
-<a name=""></a>
+<a name="stringEndsWith"></a>
 
 ### String.prototype.endsWith()
 
@@ -1450,6 +1479,371 @@ repeat(count);
 
     RangeError: repeat count must be non-negative.
     RangeError: repeat count must be less than infinity and not overflow maximum string size.
+
+<br>
+
+<a name="stringReplace"></a>
+
+### String.prototype.replace()
+
+---
+
+#### Description
+
+    returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function called for each match. If pattern is a string, only the first occurrence will be replaced.
+
+#### Syntax
+
+```js
+replace(regexp | substr, newSubstr | replacerFunction);
+```
+
+#### Parameter
+
+    regexp = A RegExp object or literal. The match or matches are replaced with newSubstr or the value returned by the specified replacerFunction.
+
+    substr = A string that is to be replaced by newSubstr. It is treated as a literal string and is not interpreted as a regular expression. Only the first occurrence will be replaced.
+
+    newSubstr = The string that replaces the substring specified by the specified regexp or substr parameter. If newSubstr is an empty string, then the substring given by substr, or the matches for regexp, are removed (rather then being replaced).
+
+    replacerFunction = A function to be invoked to create the new substring to be used to replace the matches to the given regexp or substr.
+
+#### Return value
+
+    A new string, with some or all matches of a pattern replaced by a replacement.
+
+#### Example
+
+```js
+const p = "dog dog cat rat";
+console.log(p.replace("dog", "cow"));
+// "cow dog cat rat"
+```
+
+<br>
+
+<a name="stringReplaceAll"></a>
+
+### String.prototype.replaceAll()
+
+---
+
+#### Description
+
+    it is similar to String.prototype.replace() with a global flag.
+
+#### Special Note
+
+    When using a `regexp` you have to set the global ("g") flag; otherwise, it will throw a TypeError: "replaceAll must be called with a global RegExp".
+
+<br>
+
+<a name="stringSearch"></a>
+
+### String.prototype.search()
+
+---
+
+#### Description
+
+    executes a search for a match between a regular expression and this String object.
+
+#### Syntax
+
+```js
+search(regexp);
+```
+
+#### Parameter
+
+    regexp = A regular expression object.
+
+    If a non-RegExp object regexp is passed, it is implicitly converted to a RegExp with new RegExp(regexp).
+
+#### Return value
+
+    The index of the first match between the regular expression and the given string, or -1 if no match was found.
+
+#### Example
+
+```js
+let str = "hey JudE";
+let re = /[A-Z]/g;
+let reDot = /[.]/g;
+console.log(str.search(re));
+// returns 4, which is the index of the first capital letter "J"
+console.log(str.search(reDot));
+// returns -1 cannot find '.' dot punctuation
+```
+
+<br>
+
+<a name="stringSlice"></a>
+
+### String.prototype.slice()
+
+---
+
+#### Description
+
+    extracts a section of a string and returns it as a new string, without modifying the original string.
+
+#### Syntax
+
+```js
+slice(beginIndex, endIndex);
+```
+
+#### Parameter
+
+    beginIndex = index at which to begin extraction.
+    endIndex (optional) = The index of the first character to exclude from the returned substring.
+
+#### Return value
+
+    A new string containing the extracted section of the string.
+
+#### Example
+
+```js
+const str = "The quick brown fox jumps over the lazy dog.";
+console.log(str.slice(31));
+// "the lazy dog."
+console.log(str.slice(4, 19));
+// "quick brown fox"
+console.log(str.slice(-4));
+// "dog."
+console.log(str.slice(-9, -5));
+// "lazy"
+```
+
+#### Special Note
+
+    If beginIndex is omitted, undefined, or cannot be converted to a number it begins extraction from the beginning of the string.
+
+    endIndex has excluding behaviour.
+
+<br>
+
+<a name="stringSplit"></a>
+
+### String.prototype.split()
+
+---
+
+#### Description
+
+    divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
+
+#### Syntax
+
+```js
+split(separator, limit);
+```
+
+#### Parameter
+
+    separator (optional) = The pattern describing where each split should occur. The separator can be a simple string or it can be a regular expression.
+
+    limit (optional) = A non-negative integer specifying a limit on the number of substrings to be included in the array. If limit is 0, [] is returned.
+
+#### Return value
+
+    An Array of strings, split at each point where the separator occurs in the given string.
+
+#### Example
+
+```js
+"test".split(); // ["test"]
+"best".split("t"); // ["tes", ""]
+"best".split("b"); // ["", est]
+"test.test.test".split(".", 1); // ["test"]
+"test.test.test".split(".", 0); // []
+"test.test.test".split(".", 50); // ["test","test","test"]
+"test.test.test".split(".", -5); // ["test","test","test"]
+"test.test.test".split([".", ","]); // ["test","test","test"]
+```
+
+#### Special Note
+
+    If the separator is an array, then that Array is coerced to a String and used as a separator.
+
+<br>
+
+<a name="stringStartsWith"></a>
+
+### String.prototype.startsWith()
+
+---
+
+#### Description
+
+    It is opposite of String.prototype.endsWith(). it starts from the beginning of the string.
+
+<br>
+
+<a name="stringSubstring"></a>
+
+### String.prototype.substring()
+
+---
+
+#### Description
+
+    returns the part of the string between the start and end indexes, or to the end of the string.
+
+#### Syntax
+
+```js
+substring(indexStart, indexEnd);
+```
+
+#### Parameter
+
+    indexStart = The index of the first character to include in the returned substring.
+    indexEnd (optional)  = The index of the first character to exclude from the returned substring.
+
+#### Return value
+
+    A new string containing the specified part of the given string.
+
+#### Example
+
+```js
+const str = "Mozilla";
+console.log(str.substring(1, 3));
+// "oz"
+console.log(str.substring(2));
+// "zilla"
+```
+
+#### Special Note
+
+    Negative index or any vale that cannot be converted to a number is treated as 0
+
+    If indexEnd is omitted, substring() extracts characters to the end of the string.
+
+    If indexStart is equal to indexEnd, substring() returns an empty string.
+
+    If indexStart is greater than indexEnd, then the effect of substring() is as if the two arguments were swapped;
+
+<br>
+
+<a name="stringToLowerCase"></a>
+
+### String.prototype.toLowerCase()
+
+---
+
+#### Description
+
+    returns the calling string value converted to lower case.
+
+#### Syntax
+
+```js
+toLowerCase();
+```
+
+#### Return value
+
+    A new string representing the calling string converted to lower case.
+
+#### Example
+
+```js
+console.log("ALPHABET".toLowerCase()); // 'alphabet'
+```
+
+<br>
+
+<a name="stringToString"></a>
+
+### String.prototype.toString()
+
+---
+
+#### Description
+
+    it converts a string object that is constructed with new keyword to a normal string.
+
+<br>
+
+<a name="stringToUpperCase"></a>
+
+### String.prototype.toUpperCase()
+
+---
+
+#### Description
+
+    It is opposite of String.prototype.toLowerCase()
+
+<br>
+
+<a name="stringTrim"></a>
+
+### String.prototype.trim()
+
+---
+
+#### Description
+
+    removes whitespace from both ends of a string and returns a new string
+
+#### Syntax
+
+```js
+trim();
+```
+
+#### Return value
+
+    A new string representing str stripped of whitespace from both its beginning and end.
+
+#### Example
+
+```js
+const greeting = "   Hello world!   ";
+console.log(greeting.trim());
+// "Hello world!";
+```
+
+<br>
+
+<a name="stringTrimEnd"></a>
+
+### String.prototype.trimEnd() /String.prototype.trimRight()
+
+---
+
+#### Description
+
+    It works like String.prototype.trim() but only removes whitespace from right side.
+
+<br>
+
+<a name="stringTrimStart"></a>
+
+### String.prototype.trimStart() /String.prototype.trimLeft()
+
+---
+
+#### Description
+
+    It works like String.prototype.trim() but only removes whitespace from left side.
+
+<br>
+
+<a name="stringValueOf"></a>
+
+### String.prototype.valueOf()
+
+---
+
+#### Description
+
+    It works like String.prototype.toString()
 
 <br>
 
